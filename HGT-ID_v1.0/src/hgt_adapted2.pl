@@ -147,6 +147,7 @@ print "extracting reads from human aligned bam for first pass mapping back to hu
 &extractsoftclippedreadsfromhumanbam($BAMFILE, $human_mapping, $THREADS, $PICARD, $logs);
 
 print "mapping the split soft clipped reads back to human again...\n";
+#test
 `bwa mem -t $THREADS -M -R \'\@RG\\tID:$SAMPLE\\tSM:$SAMPLE\' $HUMAN_database_Index $human_mapping/read1.fq $human_mapping/read2.fq | samtools view -u -bS - > \\
  	 $human_mapping_again/human_soft.bam`;
 
