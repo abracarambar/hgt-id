@@ -442,8 +442,8 @@ sub extractsoftclippedreadsfromhumanbam {
 	`samtools sort -\@ $THREADS -n $human_mapping/human.bam $human_mapping/human.sort`;
 	`samtools view -h $human_mapping/human.sort.bam | grep -v XF | samtools view -bS - > $human_mapping/tmp.bam`;
 	`cp $human_mapping/tmp.bam $human_mapping/human.sort.bam`;
-	`perl $SCRIPT_DIR/keepreads.pl $human_mapping/human.sort.bam | sed '/^\s*$/d' | samtools view -u -bS - > $human_mapping/human.fix.sort.bam`;
-	
+	`perl $SCRIPT_DIR/keepreads.pl $human_mapping/human.sort.bam | sed '/^\\s*\$/d' | samtools view -u -bS - > $human_mapping/human.fix.sort.bam`;
+	#sed '/^\\s*\$/d' 
 	print "#### converting the BAM file to fastq...\n";
 	#$command=join ("","java -XX:ParallelGCThreads=",$THREADS," -Xmx6g -Xms3g -jar ",$PICARD,"/SamToFastq.jar INPUT=",$human_mapping,"/soft.sorted.bam FASTQ=",$human_mapping,"/read1.fq SECOND_END_FASTQ=",$human_mapping,"/read2.fq VALIDATION_STRINGENCY=SILENT > ",$logs,"/1.bam2fastq.log 2>&1");
 	#submit($command);
