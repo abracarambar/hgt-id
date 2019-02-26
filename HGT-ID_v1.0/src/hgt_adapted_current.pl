@@ -211,7 +211,7 @@ submit($command);
 
 
 #fix !!!!
-&getviralcoverage($coverage, $OUTNAME, $OUTPUT, $autocode, $VIRUS_database.fai, $SCRIPT_DIR, $viral_mapping, $scoring);
+#&getviralcoverage($coverage, $OUTNAME, $OUTPUT, $autocode, $VIRUS_database.fai, $SCRIPT_DIR, $viral_mapping, $scoring);
 
 ### primer design
 #$command=join("","sh ",$SCRIPT_DIR,"/PrimerDesign_HGT_ID.sh ",$OUTNAME," ",$OUTPUT," ",$CONFIG);
